@@ -1,6 +1,6 @@
 install-pkg:
 	echo installing packages...
-	./pkg/install-pacman-official.sh
+	cd pkg && sudo ./install-official-packages.sh && ./install-aur-packages.sh
 
 configure:
-	cd pkg && ./configure-user.sh
+	cd pkg && ./configure-system.sh && ./configure-user.sh
