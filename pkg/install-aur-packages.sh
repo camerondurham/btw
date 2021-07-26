@@ -10,7 +10,8 @@ set -x
 
 # Load extra keys
 # spotify
-gpg --recv-keys 4773BD5E130D1D45
+# to fix unverified key error: https://aur.archlinux.org/packages/spotify/
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 
 while read AUR_PKG
 do
