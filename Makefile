@@ -1,0 +1,3 @@
+install-pkg:
+	echo installing packages...
+	./pkg/install-pacman-official.sh

@@ -1,0 +1,16 @@
+base
+base-devel
+bash-completion
+cmake
+firefox
+git
+neovim
+net-tools
+openssh
+picom
+xorg
+xorg-xinit
+nemo
+ttf-hack
+xfce4
+xfce4-notifyd
