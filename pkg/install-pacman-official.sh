@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 if [ "$EUID" -ne 0 ]
     then echo "must run as root user"

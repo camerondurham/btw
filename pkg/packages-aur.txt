@@ -1,0 +1,3 @@
+obs-linuxbrowser-bin
+spotify
+zoom

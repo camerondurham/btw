@@ -1,0 +1,21 @@
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+[user]
+	name = Cameron Durham
+    email = camrs@protonmail.com
+[alias]
+	c = commit
+	s = status
+	st = status
+	lg = log --oneline
+	last = log -1 HEAD
+	cl = log -p -- ':(exclude)Cargo.lock'
+	f = push --force-with-lease
+	# https://stackoverflow.com/a/11688523/472927
+	ss = "!f() { git stash show stash^{/$*} -p; }; f"
+	sa = "!f() { git stash apply stash^{/$*}; }; f"
+	sl = stash list
+[merge]
+	tool = nvim -d
+[github]
+    user = camerondurham

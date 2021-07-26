@@ -1,0 +1,115 @@
+#!/bin/bash
+
+if [ -e "$HOME/.internal_envs" ]; then
+    source "$HOME/.internal_envs"
+fi
+
+
+# ---------- begin notetaking
+#
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status
+  fi
+}
+
+
+cd() {
+    # builtin makes the cd inside the function invoke the builtin cd command
+    # rather than trying to call the function recursively.
+    builtin cd "$@" && ls;
+}
+
+so() {
+    if [[ -e "$HOME/.zshrc" ]]; then
+        source "$HOME/.zshrc"
+    fi
+}
+
+# path exports
+
+export XDG_CONFIG_HOME="$HOME/config"
+export NOTES_BASE=$HOME/Nextcloud/notes
+export NOTES=$HOME/Nextcloud/notes/todo
+export SNIP=$NOTES_BASE/useful-snippets.md
+export CMDS=$NOTES_BASE/commands.md
+export EDITOR="nvim"
+
+# get filename for today's notes
+# open in other editors with `code $(ttf)`
+ttf() {
+    local datefmt
+    datefmt=$(date +"%Y-%m-%d")
+    local notespath
+    notespath=${NOTES:-$HOME}
+    local filename
+    filename="TODO_$datefmt.md"
+    filepath="$notespath/$filename"
+    nvim "$filepath"
+    echo "$filepath"
+}
+
+# todo today
+tt() {
+    local filepath
+    filepath=$(ttf)
+    nvim "$filepath"
+}
+
+
+# snippets
+ss() {
+    if [[ ! -z "$NOTES_BASE" ]] && [[ ! -z "$SNIP" ]]; then
+        nvim "$SNIP"
+        echo "edited snippets: $SNIP"
+    else
+        echo "NOTES envvar not set, cannot edit snippets!"
+    fi
+}
+
+# ---------- end notetaking
+
+# ---------- pretty print
+
+pp() {
+    if [[ "$#" != "1" ]]; then
+        echo -e "\n\tplease provide a single file name to pretty print\n"
+    else
+        cat "$1" | python -m json.tool
+    fi
+}
+
+
+## homebrew
+# By default, binaries installed by gem will be placed into:
+#   /usr/local/lib/ruby/gems/3.0.0/bin
+#
+# You may want to add this to your PATH.
+#
+# ruby is keg-only, which means it was not symlinked into /usr/local,
+# because macOS already provides this software and installing another version in
+# parallel can cause all kinds of trouble.
+#
+# If you need to have ruby first in your PATH, run:
+#   echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+#
+# For compilers to find ruby you may need to set:
+#   export LDFLAGS="-L/usr/local/opt/ruby/lib"
+#   export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# ---------- zsh prompt
+# $'\n' forces new line
+export PS1=""$'\n'"%1~"$'\n'"; "
+
+if [[ -e "$HOME/.config/aliases/aliases" ]]; then
+    source "$HOME/.config/aliases/aliases"
+else
+    echo "Aliases not sourced"
+fi
+
+BASH_TOOLS_PATH=$HOME/tools
+

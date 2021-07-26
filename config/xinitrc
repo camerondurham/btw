@@ -1,0 +1,10 @@
+#!/bin/sh
+# Xfce is defualt
+session=${1:-xfce}
+
+case $session in
+    dwm         ) exec dwm;;
+    xfce|xfce4  ) exec startxfce4;;
+    # no known session, try to run as command
+    *           ) exec $1;;
+esac
