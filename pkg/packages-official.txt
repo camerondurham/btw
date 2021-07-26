@@ -25,5 +25,6 @@ xfce4
 xfce4-notifyd
 xorg
 xorg-xinit
+tmux
 zsh
 zsh-completions
