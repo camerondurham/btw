@@ -16,7 +16,7 @@ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import 
 while read AUR_PKG
 do
   if ! pacman -Q ${AUR_PKG} > /dev/null; then 
-    cd $TEMP_DIR
+    cd $TEMP_DIR || exit 1
     git clone https://aur.archlinux.org/${AUR_PKG}.git
     cd ${AUR_PKG} && makepkg -si --noconfirm && cd $TEMP_DIR
   fi

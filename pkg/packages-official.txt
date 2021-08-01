@@ -25,6 +25,8 @@ xfce4
 xfce4-notifyd
 xorg
 xorg-xinit
+xf86-video-amdgpu
+virtualbox-guest-utils
 tmux
 zsh
 zsh-completions
