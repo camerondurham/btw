@@ -8,7 +8,6 @@
 " DEFAULTS:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number          " show line numbers
-let mapleader = " "
 set cursorline		" highlight current line
 set expandtab		" always use spaces over tabs
 set softtabstop=4   " use soft tabs with 2 spaces
@@ -22,11 +21,17 @@ set autochdir       " set workingdir wherever open file lives
 set nofoldenable    " disable folds when opening file
 
 filetype plugin on
+syntax enable
 
+"   set scroll-up and scroll-down
+" to vim window not terminal window
+set mouse=nicr          "   enable mouse in normal,
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER KEYMAPS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = " "
+
 " uppercase word in normal mode
 nnoremap <leader>u <esc>viwUea
 
@@ -41,6 +46,14 @@ nnoremap <leader>so :source $MYVIMRC<cr>
 
 " Equalize windows
 nnoremap <leader>= <c-w>=
+
+" NERDTree shortcut
+nnoremap <leader>ne :NERDTree<cr>
+
+" FZF shortcut
+nnoremap <leader>f :FZF<cr>
+
+nnoremap <leader> t :tabedit<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCMDS
@@ -72,9 +85,14 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-rooter'
+Plug 'easymotion/vim-easymotion'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
 Plug 'junegunn/vim-easy-align'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " On-demand loading
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 
@@ -83,9 +101,7 @@ Plug 'tpope/vim-vinegar'
 " Any valid git URL is allowed
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"
+
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
@@ -98,20 +114,45 @@ call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-toml', 'coc-vimlsp', 'coc-yank', 'coc-java', 'coc-go']
 
+" fix syntax highlighting for tsx files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set t_Co=256   " This is may or may not needed.
+if !has('gui_running')
+  set t_Co=256
+endif
 
-syntax enable
-colorscheme PaperColor
+let g:gruvbox_dark_contrast = 'light'
+let g:gruvbox_light_contrast = 'light'
 
+" need to install iterm2-nightly for this on macos
+" refer to: https://github.com/morhetz/gruvbox/wiki/Terminal-specific
+"   brew tap homebrew/cask-versions
+"   brew install --cask iterm2-nightly
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+
+" get rid of --INSERT -- since it's not needed anymore
+" set noshowmode
+
+" :h g:lightline.colorscheme
+" let g:lightline = { 'colorscheme': 'icebergDark' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
+
+hi Normal guibg=NONE ctermbg=NONE
+
+" TODO: convert into a function
 " set dark background if it's after 20 hours or 8PM
-if strftime('%H') >= '20' || strftime('%H') <= '05'
+if strftime('%H:%M') >= '19:15' || strftime('%H:%M') <= '05:30'
     set background=dark
+    colorscheme gruvbox
 else
     set background=light
+    colorscheme gruvbox
 endif
 
 set laststatus=2
