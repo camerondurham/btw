@@ -20,7 +20,6 @@ fi
 
 mkdir -p \
     ${HOME}/.ssh \
-    ${XDG_CONFIG_DIR_LOCAL}/nvim \
     ${XDG_CONFIG_DIR_LOCAL}/xfce4/xfconf/xfce-perchannel-xml
 
 # symlink dotfiles into rightful location on machine

@@ -25,4 +25,5 @@ GRUB_FONT=GRUB_FONT=\"/boot/grubfont.pf2\"
 grep -qxF ${GRUB_FONT} /etc/default/grub || echo ${GRUB_FONT} >> /etc/default/grub
 
 # update grub config
-grub-mkconfig -o /boot/grub/grub.cfg
+# grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/EFI/Linux/grub.cfg
