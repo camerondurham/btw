@@ -20,6 +20,7 @@ fi
 
 mkdir -p \
     ${HOME}/.ssh \
+    ${XDG_CONFIG_DIR_LOCAL}/nvim \
     ${XDG_CONFIG_DIR_LOCAL}/xfce4/xfconf/xfce-perchannel-xml
 
 # symlink dotfiles into rightful location on machine
@@ -27,9 +28,9 @@ for item in ../config/*;
 do
     item=${item%*/}     # remove trailing "/"
     if [ -d "$item" ]; then
-        ln -sf "${item}" "${XDG_CONFIG_DIR_LOCAL}"
+        ln -siv "${PWD}/${item}" "${XDG_CONFIG_DIR_LOCAL}"
     elif [ -f "$item" ]; then
-        ln -f "${item}" "${HOME}/.${item##*/}"
+        ln -fv "${PWD}/${item}" "${HOME}/.${item##*/}"
     fi
 done
 
