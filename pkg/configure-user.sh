@@ -18,11 +18,6 @@ if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]; then
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# mkdir -p \
-#     ${HOME}/.ssh \
-#     ${XDG_CONFIG_DIR_LOCAL}/nvim \
-#     ${XDG_CONFIG_DIR_LOCAL}/xfce4/xfconf/xfce-perchannel-xml
-
 # symlink dotfiles into rightful location on machine
 for item in ../config/*;
 do
