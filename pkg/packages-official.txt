@@ -1,5 +1,6 @@
 alsa-utils
 amd-ucode
+alacritty
 base
 base-devel
 bash-completion
