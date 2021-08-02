@@ -30,7 +30,7 @@ do
     if [ -d "$item" ]; then
         ln -siv "${PWD}/${item}" "${XDG_CONFIG_DIR_LOCAL}"
     elif [ -f "$item" ]; then
-        ln -fv "${PWD}/${item}" "${HOME}/.${item##*/}"
+        ln -iv "${PWD}/${item}" "${HOME}/.${item##*/}"
     fi
 done
 

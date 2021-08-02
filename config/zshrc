@@ -32,11 +32,7 @@ so() {
 
 # path exports
 
-export XDG_CONFIG_HOME="$HOME/config"
-export NOTES_BASE=$HOME/Nextcloud/notes
-export NOTES=$HOME/Nextcloud/notes/todo
-export SNIP=$NOTES_BASE/useful-snippets.md
-export CMDS=$NOTES_BASE/commands.md
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 
 # get filename for today's notes

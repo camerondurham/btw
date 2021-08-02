@@ -1,0 +1,34 @@
+#!/bin/sh
+#      ^ BETTER BE POSIX COMPATIBLE!!!
+
+# aliases
+# fmt:
+# alias <flag> <alias_name>="command"
+
+# general
+alias vim="nvim"
+alias v="nvim"
+alias gl="git log"
+alias gb="git branch -vvv"
+alias gundo="git reset --soft HEAD~1"
+alias grep="rg"
+alias cat="bat"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias tailf="tail -f "
+
+# notesy notes
+alias cn="$EDITOR $CMDS"
+alias wl="$EDITOR $NOTES_BASE/work-log.md"
+
+[[ -e "$HOME/.config/aliases/aliases_internal" ]] && source "$HOME/.config/aliases/aliases_internal"
+
+
+# docker
+alias d="docker"
+alias stopall="docker stop \$(docker ps --format '{{ .ID }}')"
+alias dps="docker ps"
+alias di="docker images"
+
+# global
+# alias -g <name>="command"
+# also see https://linuxhint.com/configure-use-aliases-zsh
