@@ -2,6 +2,16 @@
 # Xfce is defualt
 session=${1:-xfce}
 
+# very brittle and will probably break if 2 monitors
+MONITOR=$(xrandr --listactivemonitors | awk '{ print $4 }')
+MODE="1920x1080"
+
+if grep 'hypervisor' /proc/cpuinfo; then
+    xrandr --output Virtual1 --mode "$MODE"
+else
+    xrandr --output "$MONITOR" --mode "$MODE"
+fi
+
 case $session in
     dwm         ) exec dwm;;
     xfce|xfce4  ) exec startxfce4;;

@@ -53,7 +53,12 @@ nnoremap <leader>ne :NERDTree<cr>
 " FZF shortcut
 nnoremap <leader>f :FZF<cr>
 
-nnoremap <leader> t :tabedit<cr>
+nnoremap <leader>t :tabedit<cr>
+
+" fix syntax highlighting - redraw highlighting
+nnoremap <leader>r :syntax sync clear<cr>
+
+nnoremap <leader>l :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCMDS
@@ -118,6 +123,22 @@ let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-eslin
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+" source: https://github.com/easymotion/vim-easymotion
+" <Leader>f{char} to move to {char}
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,11 +158,11 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
 " get rid of --INSERT -- since it's not needed anymore
-" set noshowmode
+set noshowmode
 
 " :h g:lightline.colorscheme
 " let g:lightline = { 'colorscheme': 'icebergDark' }
-let g:lightline = { 'colorscheme': 'gruvbox' }
+" let g:lightline = { 'colorscheme': 'gruvbox' }
 
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -150,9 +171,11 @@ hi Normal guibg=NONE ctermbg=NONE
 if strftime('%H:%M') >= '19:15' || strftime('%H:%M') <= '05:30'
     set background=dark
     colorscheme gruvbox
+    let g:lightline = { 'colorscheme' : 'gruvbox' }
 else
     set background=light
-    colorscheme gruvbox
+    colorscheme PaperColor
+    let g:lightline = { 'colorscheme' : 'PaperColor' }
 endif
 
 set laststatus=2
@@ -161,9 +184,16 @@ if exists("*ToggleBackground") == 0
 	function ToggleBackground()
 		if &background == "dark"
 			set background=light
+            colorscheme PaperColor
+            let g:lightline = { 'colorscheme' : 'PaperColor' }
 		else
 			set background=dark
+            colorscheme gruvbox
+            let g:lightline = { 'colorscheme' : 'gruvbox' }
+
 		endif
+        call lightline#init()
+        call lightline#update()
 	endfunction
 
     " call with `:BG`
