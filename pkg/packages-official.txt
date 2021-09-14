@@ -6,6 +6,7 @@ base-devel
 bash-completion
 bat
 cmake
+code
 ctags
 dhcpcd
 dmenu
