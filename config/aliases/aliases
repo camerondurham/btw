@@ -6,29 +6,80 @@
 # alias <flag> <alias_name>="command"
 
 # general
-alias vim="nvim"
-alias v="nvim"
+if which nvim 1>/dev/null
+then
+    alias vim="nvim"
+    alias v="nvim"
+fi
+
 alias gl="git log"
 alias gb="git branch -vvv"
 alias gundo="git reset --soft HEAD~1"
-alias grep="rg"
-alias cat="bat"
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias lssh=" ls -lh $HOME/.ssh/id_rsa-cert.pub"
+alias python="python3"
+
+if which rg 1>/dev/null
+then
+    alias grep="rg"
+fi
+
+if which bat 1>/dev/null
+then
+    alias cat="bat"
+fi
+
+if which tmux 1>/dev/null
+then
+    alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+fi
+
 alias tailf="tail -f "
 
+# maybe stupid, might remove later
+alias tf="tail -f"
+
 # notesy notes
-alias cn="$EDITOR $CMDS"
-alias wl="$EDITOR $NOTES_BASE/work-log.md"
+[[ -e "$CMDS" ]] && alias cn="$EDITOR $CMDS"
+[[ -e "$NOTES_BASE/work-log.md" ]] && alias wl="$EDITOR $NOTES_BASE/work-log.md"
+[[ -e "$NOTES_BASE/on-call-common.md" ]] && alias oc="$EDITOR $NOTES/on-call-common.md"
 
 [[ -e "$HOME/.config/aliases/aliases_internal" ]] && source "$HOME/.config/aliases/aliases_internal"
 
+# TODO: turn this sh*t into a function maybe?
+[[ -e "$HOME/.zshrc" ]] && alias ze="nvim $HOME/.zshrc"
+[[ -e "$HOME/.config/aliases/aliases" ]] && alias na="nvim $HOME/.config/aliases/aliases"
+[[ -e "$HOME/.config/nvim/init.vim" ]] && alias ne="nvim $HOME/.config/nvim/init.vim"
 
-# docker
-alias d="docker"
-alias stopall="docker stop \$(docker ps --format '{{ .ID }}')"
-alias dps="docker ps"
-alias di="docker images"
+
+if which docker 1>/dev/null
+then
+    alias d="docker"
+    alias stopall="docker stop \$(docker ps --format '{{ .ID }}')"
+    alias dps="docker ps"
+    alias di="docker images"
+fi
+
+# scriptsss
+alias dt="$HOME/config/tools/devmux"
+alias dm="$HOME/config/tools/devmux"
 
 # global
 # alias -g <name>="command"
 # also see https://linuxhint.com/configure-use-aliases-zsh
+
+[[ -e "$HOME/tools/excalidraw/" ]] && alias excaliup="cd $HOME/tools/excalidraw && docker run --rm -dit --name excalidraw -p 5000:80 excalidraw/excalidraw:latest"
+
+[[ $(uname) == "Darwin" ]] && alias ls="ls -G"
+
+# From Ubuntu default .bashrc
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi

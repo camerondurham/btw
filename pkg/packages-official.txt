@@ -33,7 +33,7 @@ ttf-hack
 virtualbox-guest-utils
 wget
 xbindkeys
-xf86-video-amdgpu
+xf86-video-vmware
 xfce4
 xfce4-notifyd
 xorg

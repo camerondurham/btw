@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# session name
+sn="dev-tmux"
+
+tmux has-session -t "$sn" 2>/dev/null
+
+if [[ $? -ne 0 ]]; then
+    # create session
+    cd ~/config
+    tmux new-session -s "$sn" -n "config" -d
+
+    cd ~/workplace/ContributorIngestServices/src/ContributorIngestServicesCDK
+    # set title to last dir name in PWD path
+    tmux new-window -t "$sn" -n "${PWD##*/}:1"
+    tmux new-window -t "$sn" -n "${PWD##*/}:2"
+
+    cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
+    tmux new-window -t "$sn" -n "${PWD##*/}"
+
+    cd ~/workplace/ContributorIngestServices/src
+    tmux new-window -t "$sn" -n "ws:cis:1"
+    tmux new-window -t "$sn" -n "ws:cis:2"
+fi
+
+# attach to running session
+tmux -2 attach-session -t "$sn"
