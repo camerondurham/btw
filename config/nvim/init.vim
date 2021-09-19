@@ -94,6 +94,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
 Plug 'junegunn/vim-easy-align'
+Plug 'kaicataldo/material.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
@@ -170,12 +171,15 @@ hi Normal guibg=NONE ctermbg=NONE
 " set dark background if it's after 20 hours or 8PM
 if strftime('%H:%M') >= '19:15' || strftime('%H:%M') <= '05:30'
     set background=dark
-    colorscheme gruvbox
-    let g:lightline = { 'colorscheme' : 'gruvbox' }
+    let g:material_theme_style = 'darker'
+    colorscheme material
+    let g:lightline = { 'colorscheme' : 'material_vim' }
 else
     set background=light
-    colorscheme PaperColor
-    let g:lightline = { 'colorscheme' : 'PaperColor' }
+    let g:material_theme_style = 'lighter'
+    colorscheme material
+    " colorscheme PaperColor
+    let g:lightline = { 'colorscheme' : 'material_vim' }
 endif
 
 set laststatus=2
@@ -184,12 +188,16 @@ if exists("*ToggleBackground") == 0
 	function ToggleBackground()
 		if &background == "dark"
 			set background=light
-            colorscheme PaperColor
-            let g:lightline = { 'colorscheme' : 'PaperColor' }
+            let g:material_theme_style = 'lighter'
+            colorscheme material
+            " colorscheme PaperColor
+            let g:lightline = { 'colorscheme' : 'material_vim' }
 		else
 			set background=dark
-            colorscheme gruvbox
-            let g:lightline = { 'colorscheme' : 'gruvbox' }
+            let g:material_theme_style = 'darker'
+            colorscheme material
+            " colorscheme gruvbox
+            let g:lightline = { 'colorscheme' : 'material_vim' }
 
 		endif
         call lightline#init()
