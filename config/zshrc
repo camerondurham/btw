@@ -90,5 +90,5 @@ else
     echo "Aliases not sourced"
 fi
 
-BASH_TOOLS_PATH=$HOME/tools
+export PATH=$PATH:$XDG_CONFIG_HOME/tools
 

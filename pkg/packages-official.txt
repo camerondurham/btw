@@ -27,6 +27,7 @@ nvidia-utils
 obs-studio
 openssh
 picom
+python-pip
 ripgrep
 tmux
 ttf-hack
