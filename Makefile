@@ -5,5 +5,6 @@ install:
 configure:
 	cd pkg && sudo ./configure-system.sh && ./configure-user.sh && ./download-wallpapers.sh
 
+# oh this is so ugly but ok for now
 list:
 	echo -e "install\nconfigure"
