@@ -12,8 +12,9 @@ else
     xrandr --output "$MONITOR" --mode "$MODE"
 fi
 
+xbindkeys -p &
+
 case $session in
-    dwm         ) exec dwm;;
     xfce|xfce4  ) exec startxfce4;;
     # no known session, try to run as command
     *           ) exec $1;;
