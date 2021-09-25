@@ -10,17 +10,20 @@ if [[ $? -ne 0 ]]; then
     cd ~/config
     tmux new-session -s "$sn" -n "config" -d
 
-    cd ~/workplace/ContributorIngestServices/src/ContributorIngestServicesCDK
+    # cd ~/workplace/ContributorIngestServices/src/ContributorIngestServicesCDK
     # set title to last dir name in PWD path
     tmux new-window -t "$sn" -n "${PWD##*/}:1"
     tmux new-window -t "$sn" -n "${PWD##*/}:2"
 
-    cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
+    # cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
     tmux new-window -t "$sn" -n "${PWD##*/}"
 
-    cd ~/workplace/ContributorIngestServices/src
+    # cd ~/workplace/ContributorIngestServices/src
     tmux new-window -t "$sn" -n "ws:cis:1"
     tmux new-window -t "$sn" -n "ws:cis:2"
+
+    cd ~/workplace
+    tmux new-window -t "$sn" -n "workplace"
 fi
 
 # attach to running session

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# session name
+sn="dev-tmux"
+
+tmux has-session -t "$sn" 2>/dev/null
+
+if [[ $? -ne 0 ]]; then
+
+    if [ -e "$HOME/.internal_envs" ]; then
+        source "$HOME/.internal_envs"
+    fi
+
+    # create session
+    cd ~/config
+    tmux new-session -s "$sn" -n "config" -d
+
+    tmux new-window -t "$sn" -n "notes"
+
+    cd ~/workplace/ContributorIngestServices/src/ContributorIngestServicesCDK
+    # set title to last dir name in PWD path
+    tmux new-window -t "$sn" -n "${PWD##*/}"
+
+    cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
+    tmux new-window -t "$sn" -n "${PWD##*/}"
+
+    cd ~/workplace/ContributorIngestServices/src
+    tmux new-window -t "$sn" -n "ws:cis"
+
+    cd ~/workplace/ListingsDPPIntegTestNAWS
+    window="ws-ListingsDPPInteg-0"
+    full_window="${sn}:${window}"
+    tmux new-window -t "$sn" -n "${window}"
+    tmux send-keys -t "${full_window}" "${QWERT1}" 'C-m'
+    tmux split-window -t ${full_window} -h
+    tmux send-keys -t "${full_window}.1" "cd ~/workplace/ListingsDPPIntegTestNAWS/src/ContraListingsDPPIntegrationTest" Enter
+    tmux new-window -t "$sn" -n "ws-ListingsDPPInteg-1"
+
+    # from https://superuser.com/a/492549
+        # session=whatever
+        # window=${session}:0
+        # pane=${window}.4
+        # tmux send-keys -t "$pane" C-z 'some -new command' Enter
+    # tmux new-window -t "$sn" -n "ws:ListingsDPPInteg:sync"
+
+
+    cd ~/workplace
+    tmux new-window -t "$sn" -n "workplace"
+
+    # don't need port forwarding now
+    # window="port-forward"
+    # tmux new-window -t "${sn}" -n "${window}"
+    # tmux send-keys -t "${sn}:${window}" "ssh -L 2009:127.0.0.1:2009 $CLOUD_DESKTOP" Enter
+
+
+fi
+
+# attach to running session
+tmux -2 attach-session -t "$sn"

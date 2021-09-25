@@ -61,6 +61,13 @@ nnoremap <leader>r :syntax sync clear<cr>
 nnoremap <leader>l :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ABBREVIATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ab @@ # TODO <CR>- [ ]
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCMDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -90,6 +97,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'airblade/vim-rooter'
+Plug 'dkarter/bullets.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
@@ -101,7 +109,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " On-demand loading
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
-
 " Plug 'dense-analysis/ale'
 
 " Any valid git URL is allowed
@@ -118,7 +125,7 @@ call plug#end()
 " PLUGIN CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-toml', 'coc-vimlsp', 'coc-yank', 'coc-java', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-rust-analyzer', 'coc-toml', 'coc-vimlsp', 'coc-yank', 'coc-java', 'coc-go', 'coc-yaml', 'coc-sh']
 
 " fix syntax highlighting for tsx files
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
@@ -140,6 +147,28 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
+let g:bullets_nested_checkboxes = 1 " default = 1
+" Example:
+" - [ ] first bullet
+"   - [ ] child bullet  [ type <leader>x ]
+"     - [ ] sub-child
+"   - [ ] child bullet
+"
+" Result:
+" - [o] first bullet   [ <- indicates partial completion of sub-tasks ]
+"   - [X] child bullet
+"     - [X] sub-child  [ <- children get checked when parents get checked ]
+"   - [ ] child bullet
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,8 +177,14 @@ if !has('gui_running')
   set t_Co=256
 endif
 
+" Gruvbox colorscheme
 let g:gruvbox_dark_contrast = 'light'
 let g:gruvbox_light_contrast = 'light'
+
+" Material colorscheme
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'lighter'
+colorscheme material
 
 " need to install iterm2-nightly for this on macos
 " refer to: https://github.com/morhetz/gruvbox/wiki/Terminal-specific
@@ -162,8 +197,8 @@ set termguicolors
 set noshowmode
 
 " :h g:lightline.colorscheme
-" let g:lightline = { 'colorscheme': 'icebergDark' }
-" let g:lightline = { 'colorscheme': 'gruvbox' }
+" other good colorschemes: gruvbox, icebergDark
+let g:lightline = { 'colorscheme' : 'material_vim' }
 
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -206,4 +241,16 @@ if exists("*ToggleBackground") == 0
 
     " call with `:BG`
 	command BG call ToggleBackground()
+endif
+
+
+" debugging healthcheck
+" if has('pythonx')
+"   echo 'pyx* commands are available. (Python ' . &pyx . ')'
+" endif
+
+" to install neovim python provider:
+" pip3 install --user neovim
+if has('python3')
+  set pyx=3
 endif

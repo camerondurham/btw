@@ -11,8 +11,9 @@ XDG_CONFIG_DIR_LOCAL="$HOME/.config"
 
 # install vim plug
 if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]; then
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "installing vim plug"
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # symlink dotfiles into rightful location on machine
