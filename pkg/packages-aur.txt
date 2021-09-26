@@ -1,4 +1,5 @@
 golang-dep
 kubectl-bin
+simplenote-electron-bin
 slack-desktop
 spotify
