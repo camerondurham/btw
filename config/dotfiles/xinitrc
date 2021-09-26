@@ -9,7 +9,9 @@ MODE="1920x1080"
 if grep 'hypervisor' /proc/cpuinfo; then
     xrandr --output Virtual1 --mode "$MODE"
 else
-    xrandr --output "HDMI-0" --mode "$MODE" --output "DP-0" --mode "$MODE" &
+    # xrandr --output "HDMI-0" --mode "$MODE" --output "DP-0" --mode "$MODE" &
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
 fi
 
 xbindkeys -p &
