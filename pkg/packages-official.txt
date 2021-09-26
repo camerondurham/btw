@@ -30,9 +30,11 @@ nvidia
 nvidia-utils
 obs-studio
 openssh
+pavucontrol
 picom
 python-pip
 ripgrep
+signal-desktop
 tmux
 ttf-hack
 webkit2gtk
@@ -42,5 +44,6 @@ xfce4
 xfce4-notifyd
 xorg
 xorg-xinit
+yarn
 zsh
 zsh-completions

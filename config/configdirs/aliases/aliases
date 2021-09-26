@@ -83,3 +83,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+if [ -x /usr/bin/pacman ]; then
+    alias unused="sudo pacman -Qdt"
+    alias rmcache="sudo pacman -Scc"
+fi
