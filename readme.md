@@ -13,7 +13,7 @@ this.
 
 ## notes
 
-Removing `obs-linuxbrowser-bin` because pkg build is broken. Needs to update dep `gconf` (obsolete apparently).
+Had removed `obs-linuxbrowser-bin` because it also needed `gconf` and `ceph-minimal` aur packages installed with it.
 
 See [package](https://aur.archlinux.org/packages/obs-linuxbrowser-bin)
 

@@ -88,3 +88,8 @@ if [ -x /usr/bin/pacman ]; then
     alias unused="sudo pacman -Qdt"
     alias rmcache="sudo pacman -Scc"
 fi
+
+if [ -x /usr/bin/kubectl ]; then
+    alias k="kubectl"
+    alias kgp="kubectl get pods"
+fi
