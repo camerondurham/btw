@@ -16,6 +16,8 @@ firefox-developer-edition
 git
 go
 grub
+gtk3
+libusb
 nemo
 neovim
 net-tools
@@ -32,6 +34,7 @@ python-pip
 ripgrep
 tmux
 ttf-hack
+webkit2gtk
 wget
 xbindkeys
 xfce4
