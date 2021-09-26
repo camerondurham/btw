@@ -6,6 +6,7 @@ base
 base-devel
 bash-completion
 bat
+bitwarden
 cmake
 code
 ctags
