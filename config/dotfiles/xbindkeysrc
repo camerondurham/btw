@@ -1,7 +1,7 @@
 ## launch demu
 "dmenu_run -fn Hack-16:normal -l 5"
     m:0x40 + c:65
-    Mod4 + space 
+    Mod4 + space
 
 # launch browser
 "lof /usr/lib/firefox-developer-edition/firefox"
@@ -11,7 +11,7 @@
 # launch or focus terminal
 "lof alacritty\ \-e\ tmux"
     m:0x40 + c:44
-    Mod4 + j
+    Mod4 + a
 
 # launch or focus editor
 "lof_intellij"
@@ -27,3 +27,8 @@
 "lof /usr/lib/slack/slack"
     m:0x40 + c:30
     Mod4 + u
+
+# launch or focus slack
+"lof /usr/bin/spotify"
+    m:0x40 + c:56
+    Mod4 + m

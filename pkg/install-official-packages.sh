@@ -12,3 +12,8 @@ echo
 # requires sudo
 # --noconfirm is used to select all packages from groups
 pacman -Sy --needed $(<packages-official.txt)
+
+
+if grep 'hypervisor' /proc/cpuinfo; then
+    pacman -Sy --needed $(<packages-official-vm-extras.txt)
+fi

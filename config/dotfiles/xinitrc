@@ -9,13 +9,13 @@ MODE="1920x1080"
 if grep 'hypervisor' /proc/cpuinfo; then
     xrandr --output Virtual1 --mode "$MODE"
 else
-    xrandr --output "$MONITOR" --mode "$MODE"
+    xrandr --output "HDMI-0" --mode "$MODE" --output "DP-0" --mode "$MODE" &
 fi
 
 xbindkeys -p &
 
 case $session in
-    xfce|xfce4  ) exec startxfce4;;
+    xfce|xfce4  ) exec xfwm4;;
     # no known session, try to run as command
     *           ) exec $1;;
 esac
