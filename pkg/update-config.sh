@@ -9,6 +9,7 @@ function update() {
     cp -r ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ../config/configdirs/xfce4/xfconf/xfce-perchannel-xml/
 
 	# dotfiles and such to ~/.*
+    cp ~/.alacritty.yml ../config/dotfiles/alacritty.yml
 	cp ~/.gitconfig ../config/dotfiles/gitconfig
 	cp ~/.xbindkeysrc ../config/dotfiles/xbindkeysrc
 	cp ~/.xinitrc ../config/dotfiles/xinitrc

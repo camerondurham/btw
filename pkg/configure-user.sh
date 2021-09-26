@@ -28,6 +28,7 @@ cp  ../config/configdirs/xfce4/xfconf/xfce-perchannel-xml ~/.config/xfce4/xfconf
 
 
 # dotfiles and such to ~/.*
+cp ../config/dotfiles/alacritty.yml ~/.alacritty.yml
 cp ../config/dotfiles/gitconfig ~/.gitconfig
 cp ../config/dotfiles/xbindkeysrc ~/.xbindkeysrc
 cp ../config/dotfiles/xinitrc ~/.xinitrc
