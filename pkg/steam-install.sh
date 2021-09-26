@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# https://wiki.archlinux.org/title/Steam#Installation
+
+echo "uncomment this section in /etc/pacman.conf"
+echo -e "\t[multilib]\n\tInclude = /etc/pacman.d/mirrorlist"
+
+echo -n "Are you finished doing this? (y/n)"
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ]; then
+	echo "continuing..."
+else
+	echo "quitting..."
+	exit
+fi
+
+# installing lib32-systemd since using systemd-networkd
+sudo pacman -Sy lib32-systemd steam lib32-nvidia-utils lib32-fontconfig ttf-liberation
