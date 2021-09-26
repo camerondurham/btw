@@ -16,8 +16,9 @@ if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]; then
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-neovim-plugin-deps-install.sh
+./neovim-plugin-deps-install.sh || return 1
 
+mkdir -p $HOME/.config
 
 # copy configdirs/{aliases,nvim,tmux} to .config/
 cp -r ../config/configdirs/aliases ~/.config/aliases
