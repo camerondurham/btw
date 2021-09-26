@@ -41,7 +41,6 @@
         <value type="int" value="7"/>
         <value type="int" value="16"/>
         <value type="int" value="23"/>
-        <value type="int" value="17"/>
         <value type="int" value="18"/>
         <value type="int" value="19"/>
         <value type="int" value="20"/>
@@ -71,6 +70,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="steam"/>
         <value type="string" value="obs"/>
         <value type="string" value="vlc"/>
         <value type="string" value="discord1"/>
@@ -88,11 +88,6 @@
     <property name="plugin-14" type="string" value="actions"/>
     <property name="plugin-15" type="string" value="showdesktop"/>
     <property name="plugin-16" type="string" value="separator"/>
-    <property name="plugin-17" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="16326481861.desktop"/>
-      </property>
-    </property>
     <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="16326481862.desktop"/>
