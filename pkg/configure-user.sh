@@ -21,9 +21,10 @@ fi
 mkdir -p $HOME/.config
 
 # copy configdirs/{aliases,nvim,tmux} to .config/
-cp -r ../config/configdirs/aliases ~/.config/aliases
-cp -r ../config/configdirs/nvim ~/.config/nvim
-cp -r ../config/configdirs/tmux ~/.config/tmux
+mkdir -p ~/.config/{aliases,nvim,tmux}
+cp ../config/configdirs/aliases/* ~/.config/aliases
+cp ../config/configdirs/nvim/* ~/.config/nvim
+cp ../config/configdirs/tmux/* ~/.config/tmux
 
 # dotfiles and such to ~/.*
 cp ../config/dotfiles/gitconfig ~/.gitconfig
