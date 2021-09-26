@@ -41,6 +41,7 @@ ttf-hack
 vlc
 webkit2gtk
 wget
+wmctrl
 xbindkeys
 xfce4
 xfce4-notifyd

@@ -1,5 +1,8 @@
+cef-minimal
+gconf
 golang-dep
 kubectl-bin
+obs-linuxbrowser-bin
 simplenote-electron-bin
 slack-desktop
 spotify
