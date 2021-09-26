@@ -1,6 +1,4 @@
 golang-dep
 kubectl-bin
-obs-linuxbrowser-bin
 slack-desktop
 spotify
-zoom

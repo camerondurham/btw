@@ -8,3 +8,7 @@ This is just public so I don't have to configure auth when cloning from github
 and **might** break your system if you have anything installed already, or
 set anything up in your `~/.config` directory. So this is a warning not to use
 this.
+
+**note**
+
+Had to remove `obs-linuxbrowser-bin` because pkg build is broken. Needs to update dep `gconf`.
