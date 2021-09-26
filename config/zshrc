@@ -84,8 +84,8 @@ pp() {
 # $'\n' forces new line
 export PS1=""$'\n'"%1~"$'\n'"; "
 
-if [[ -e "$HOME/.config/aliases/aliases" ]]; then
-    source "$HOME/.config/aliases/aliases"
+if [[ -e "$HOME/.config/aliases" ]]; then
+    source "$HOME/.config/aliases"
 else
     echo "Aliases not sourced"
 fi
