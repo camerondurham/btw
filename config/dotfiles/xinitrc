@@ -15,7 +15,7 @@ fi
 xbindkeys -p &
 
 case $session in
-    xfce|xfce4  ) exec xfwm4;;
+    xfce|xfce4  ) exec startxfce4;;
     # no known session, try to run as command
     *           ) exec $1;;
 esac
