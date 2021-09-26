@@ -84,11 +84,14 @@ pp() {
 # $'\n' forces new line
 export PS1=""$'\n'"%1~"$'\n'"; "
 
-if [[ -e "$HOME/.config/aliases" ]]; then
-    source "$HOME/.config/aliases"
+if [[ -e "$HOME/.config/aliases/aliases" ]]; then
+    source "$HOME/.config/aliases/aliases"
 else
     echo "Aliases not sourced"
 fi
 
-export PATH=$PATH:$XDG_CONFIG_HOME/tools
+
+if [[ -e "$HOME/setup/tools" ]]; then
+    export PATH=$PATH:$HOME/setup/tools
+fi
 

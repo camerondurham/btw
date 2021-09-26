@@ -16,16 +16,34 @@ if [ ! -e ~/.local/share/nvim/site/autoload/plug.vim ]; then
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+neovim-plugin-deps-install.sh
+
+
+# copy configdirs/{aliases,nvim,tmux} to .config/
+cp -r ../config/configdirs/aliases ~/.config/aliases
+cp -r ../config/configdirs/nvim ~/.config/nvim
+cp -r ../config/configdirs/tmux ~/.config/tmux
+
+# dotfiles and such to ~/.*
+cp ../config/dotfiles/gitconfig ~/.gitconfig
+cp ../config/dotfiles/xbindkeysrc ~/.xbindkeysrc
+cp ../config/dotfiles/xinitrc ~/.xinitrc
+cp ../config/dotfiles/Xresources ~/.Xresources
+cp ../config/dotfiles/zprofile ~/.zprofile
+cp ../config/dotfiles/zshrc ~/.zshrc
+
+
+# this is borked, has odd symlinking that messes up the system and I don't feel like automating rn
 # symlink dotfiles into rightful location on machine
-for item in ../config/*;
-do
-    item=${item%*/}     # remove trailing "/"
-    if [ -d "$item" ]; then
-        ln -siv "${PWD}/${item}" "${XDG_CONFIG_DIR_LOCAL}"
-    elif [ -f "$item" ]; then
-        ln -iv "${PWD}/${item}" "${HOME}/.${item##*/}"
-    fi
-done
+# for item in ../config/*;
+# do
+#     item=${item%*/}     # remove trailing "/"
+#     if [ -d "$item" ]; then
+#         ln -siv "${PWD}/${item}" "${XDG_CONFIG_DIR_LOCAL}"
+#     elif [ -f "$item" ]; then
+#         ln -iv "${PWD}/${item}" "${HOME}/.${item##*/}"
+#     fi
+# done
 
 # set default shell to zsh
 chsh -s /usr/bin/zsh
