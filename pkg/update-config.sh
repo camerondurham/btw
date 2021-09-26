@@ -6,6 +6,7 @@ function update() {
 	cp -r ~/.config/aliases/aliases ../config/configdirs/aliases/
 	cp -r ~/.config/nvim/init.vim ../config/configdirs/nvim/
 	cp -r ~/.config/tmux/tmux.conf ../config/configdirs/tmux/
+    cp -r ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ../config/configdirs/xfce4/xfconf/xfce-perchannel-xml/
 
 	# dotfiles and such to ~/.*
 	cp ~/.gitconfig ../config/dotfiles/gitconfig

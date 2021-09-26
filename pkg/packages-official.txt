@@ -37,6 +37,7 @@ ripgrep
 signal-desktop
 tmux
 ttf-hack
+vlc
 webkit2gtk
 wget
 xbindkeys
