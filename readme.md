@@ -6,16 +6,26 @@ https://github.com/octetz/linux-desktop. I chose not to fork since I don't want
 [josh (octetz)](https://octetz.com)'s handy `lof` script and such. If I
 write anything meaningful/helpful I'll contribute back.
 
-This is a set of scripts to setup a bare bones graphical environment on an Arch
-Linux installation.
+This is a set of scripts to setup a pretty boring graphical environment on an Arch
+Linux installation. It's pretty boring but simple and productive for me.
 
 This is just public so I don't have to configure auth when cloning from github
 and will probably overwrite any nvim, tmux or x config you might have.  So this
 is a warning not to use this. I only recommend testing this in a fresh install
 of Arch with an AMD CPU and NVIDIA GPU (can be in a VM, I tested this that way).
 
+```bash
+# install required packages from official respositories and aur
+make install
 
-## steam
+# install dotfiles and basic system config (nvim, tmux, aliases, xorg, xfce4)
+make config
+
+# print a crudely formatted list of targets
+make list
+```
+
+## gaming
 
 The script `pkg/steam-install.sh` should help getting steam setup. It's not
 automated but mainly a sequence of steps to get Steam, required fonts, and
