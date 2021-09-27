@@ -11,7 +11,8 @@ shell:
     args:
       - -l
       - -c
-      - "tmux attach || tmux -f ~/.config/tmux/tmux.conf"
+      # - "tmux attach || tmux -f ~/.config/tmux/tmux.conf"
+      - "tmux attach || ~/setup/tools/devmux || tmux -f ~/.config/tmux/tmux.conf || tmux"
 
 
 window:
