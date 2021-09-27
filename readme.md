@@ -7,12 +7,8 @@ https://github.com/octetz/linux-desktop. I chose not to fork since I don't want
 write anything meaningful/helpful I'll contribute back.
 
 This is a set of scripts to setup a pretty boring graphical environment on an Arch
-Linux installation. It's pretty boring but simple and productive for me.
-
-This is just public so I don't have to configure auth when cloning from github
-and will probably overwrite any nvim, tmux or x config you might have.  So this
-is a warning not to use this. I only recommend testing this in a fresh install
-of Arch with an AMD CPU and NVIDIA GPU (can be in a VM, I tested this that way).
+Linux installation. It's pretty boring but simple and reproducible in case I break
+my install.
 
 ## setup
 
