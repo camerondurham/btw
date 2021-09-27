@@ -18,11 +18,15 @@ localectl set-locale LANG=en_US.UTF-8
 # from https://github.com/zsa/wally/wiki/Linux-install
 sudo mkdir -p /etc/udev/rules.d/
 
-sudo touch /etc/udev/rules.d/50-wally.rules
-sudo cp ../config/udev/rules.d/50-wally.rules /etc/udev/rules.d/50-wally.rules
+if [ ! -e /etc/udev/rules.d/50-wally.rules ]; then
+    sudo touch /etc/udev/rules.d/50-wally.rules
+    sudo cp ../config/udev/rules.d/50-wally.rules /etc/udev/rules.d/50-wally.rules
+fi
 
-sudo touch /etc/udev/rules.d/50-oryx.rules
-sudo cp ../config/udev/rules.d/50-oryx.rules /etc/udev/rules.d/50-oryx.rules
+if [ ! -e /etc/udev/rules.d/50-oryx.rules ]; then
+    sudo touch /etc/udev/rules.d/50-oryx.rules
+    sudo cp ../config/udev/rules.d/50-oryx.rules /etc/udev/rules.d/50-oryx.rules
+fi
 
 sudo groupadd plugdev
 sudo usermod -aG plugdev $USER

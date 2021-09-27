@@ -27,7 +27,8 @@ if [[ $? -ne 0 ]]; then
     # set title to last dir name in PWD path
     tmux new-window -t "$sn" -n "${PWD##*/}"
 
-    # cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
+    # example
+    # cd ~/workplace/project
     # tmux new-window -t "$sn" -n "${PWD##*/}"
 
     cd ~/workplace/

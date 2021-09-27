@@ -1,6 +1,8 @@
 cef-minimal
+docker-git
 gconf
 golang-dep
+jetbrains-toolbox
 kubectl-bin
 obs-linuxbrowser-bin
 simplenote-electron-bin

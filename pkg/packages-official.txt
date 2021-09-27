@@ -13,7 +13,6 @@ ctags
 dhcpcd
 discord
 dmenu
-docker
 firefox-developer-edition
 git
 go
