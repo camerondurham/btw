@@ -70,6 +70,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="toolbox"/>
         <value type="string" value="steam"/>
         <value type="string" value="obs"/>
         <value type="string" value="vlc"/>

@@ -21,7 +21,7 @@ g() {
 cd() {
     # builtin makes the cd inside the function invoke the builtin cd command
     # rather than trying to call the function recursively.
-    builtin cd "$@" && ls;
+    builtin cd "$@" && ls --color=auto;
 }
 
 so() {
