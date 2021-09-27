@@ -12,6 +12,7 @@ code
 ctags
 dhcpcd
 discord
+docker
 dmenu
 firefox-developer-edition
 git

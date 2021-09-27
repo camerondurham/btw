@@ -3,7 +3,7 @@
 This repo is very much based on/inspired by:
 https://github.com/octetz/linux-desktop. I chose not to fork since I don't want
 `st` or `dwm` setup but very much indebted to
-[joshrusso](https://twitter.com/joshrosso)'s handy `lof` script and such. If I
+[josh (octetz)](https://octetz.com)'s handy `lof` script and such. If I
 write anything meaningful/helpful I'll contribute back.
 
 This is a set of scripts to setup a bare bones graphical environment on an Arch

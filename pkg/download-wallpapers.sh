@@ -11,6 +11,8 @@ laskyline="https://nextcloud.cmrn.xyz/s/rSMFMJxcoJTJyGY/download"
 declare -A backgrounds=( [losangelesnight.jpg]="$losangelesnight"  [hongkongnight.jpg]="$hongkongnight" [laskyline.jpg]="$laskyline")
 
 for key in "${!backgrounds[@]}"; do
-    echo "downloading $key"
-    wget -O "$key" "${backgrounds[$key]}"
+    if [ ! -e "$DEST/$key" ]; then
+        echo "downloading $key"
+        wget -O "$key" "${backgrounds[$key]}"
+    fi
 done

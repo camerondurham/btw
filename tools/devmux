@@ -31,6 +31,9 @@ if [[ $? -ne 0 ]]; then
     # cd ~/workplace/project
     # tmux new-window -t "$sn" -n "${PWD##*/}"
 
+    cd ~/workplace/ch
+    tmux new-window -t "$sn" -n "${PWD##*/}"
+
     cd ~/workplace/
     window="ws-0"
     full_window="${sn}:${window}"
@@ -38,7 +41,7 @@ if [[ $? -ne 0 ]]; then
     tmux send-keys -t "${full_window}" "${QWERT1}" 'C-m'
     tmux split-window -t ${full_window} -h
     tmux send-keys -t "${full_window}.1" "cd ~/workplace/" Enter
-    tmux new-window -t "$sn" -n "ws-ListingsDPPInteg-1"
+    tmux new-window -t "$sn" -n "ws-1"
 
     # from https://superuser.com/a/492549
         # session=whatever
