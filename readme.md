@@ -43,12 +43,6 @@ Games I'm planning to play but haven't made time yet:
 - Splitgate
 - Portal
 
-## notes
-
-Had removed `obs-linuxbrowser-bin` because it also needed `gconf` and `ceph-minimal` aur packages installed with it.
-
-See [package](https://aur.archlinux.org/packages/obs-linuxbrowser-bin)
-
 ## learnings
 
 ### multiple monitors
@@ -69,4 +63,8 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 ```
 
+## notes
+
+- `obs-linuxbrowser-bin` also must be installed with dependencies from aur `gconf` and `ceph-minimal` (see [package](https://aur.archlinux.org/packages/obs-linuxbrowser-bin))
+- cannot build the aur version of docker, `docker-git`, due to broken/unmaintained package and/or docker project being move to moby/moby repo
 
