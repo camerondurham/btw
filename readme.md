@@ -1,5 +1,7 @@
 # arch desktop setup
 
+> guaranteed far too ugly and vanilla to ever be posted on r/unixporn
+
 This repo is very much based on/inspired by:
 https://github.com/octetz/linux-desktop. I chose not to fork since I don't want
 `st` or `dwm` setup but very much indebted to
