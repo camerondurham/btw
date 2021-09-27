@@ -31,6 +31,18 @@ The script `pkg/steam-install.sh` should help getting steam setup. It's not
 automated but mainly a sequence of steps to get Steam, required fonts, and
 graphics drivers **for NVIDIA only** installed.
 
+Games I've successfully played on this Arch install:
+
+- Control Ultimate Edition
+
+Games I'm planning to play but haven't made time yet:
+
+- Hades
+- Terraria
+- Halo Master Chief Collection
+- Splitgate
+- Portal
+
 ## notes
 
 Had removed `obs-linuxbrowser-bin` because it also needed `gconf` and `ceph-minimal` aur packages installed with it.
