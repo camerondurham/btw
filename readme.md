@@ -1,4 +1,4 @@
-# arch-desktop
+# arch desktop setup
 
 This repo is very much based on/inspired by:
 https://github.com/octetz/linux-desktop. I chose not to fork since I don't want
