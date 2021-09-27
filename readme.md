@@ -14,6 +14,26 @@ and will probably overwrite any nvim, tmux or x config you might have.  So this
 is a warning not to use this. I only recommend testing this in a fresh install
 of Arch with an AMD CPU and NVIDIA GPU (can be in a VM, I tested this that way).
 
+## setup
+
+On a fresh install of Arch in VirtualBox or a PC with AMD CPU, nvidia GPU,
+all you *should* have to do is run the following commands and enter your sudo
+password when prompted:
+
+```
+# install packages
+make install
+
+# setup desktop and dotfiles
+make config
+```
+
+Make sure the pacstrap command inclues the packages `base-devel` and `git`.
+
+---
+
+**Makefile Details**
+
 ```bash
 # install required packages from official respositories and aur
 make install
