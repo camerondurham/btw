@@ -71,12 +71,65 @@ ss() {
 
 # ---------- pretty print
 
-pp() {
+function pp() {
     if [[ "$#" != "1" ]]; then
         echo -e "\n\tplease provide a single file name to pretty print\n"
     else
         cat "$1" | python -m json.tool
     fi
+}
+
+function lp() {
+    local ports
+    if [[ "$#" != "0" ]]; then
+        ports="$1"
+    else
+        ports="8080,8443" # kill processes using normal ports for Bobcat
+    fi
+
+    processes=$(lsof -i:"${ports}")
+
+    if [ ! -z "$processes" ]; then
+        echo $processes
+    else
+        echo "no processes running on port(s) $ports"
+        return
+    fi
+}
+
+alias listports=lp
+
+function kports() {
+    local ports
+    if [[ "$#" != "0" ]]; then
+        ports="$1"
+    else
+        ports="8080,8443" # kill processes using normal ports for Bobcat
+    fi
+
+    processes=$(lsof -i:"${ports}")
+    if [ ! -z "$processes" ]; then
+        # kill using open ports, only print PIDs
+        kill -HUP `lsof -t -i:$ports`
+    else
+        echo "no processes running on port(s) $ports"
+        return
+    fi
+}
+
+alias killports=kports
+
+function writescript() {
+
+    local filename
+    if [[ "$#" != "0" ]]; then
+        filename=$1
+    else
+        echo "give me a filename, idiot!"
+        return
+    fi
+    $EDITOR "$filename" && chmod +x "$filename"
+    echo "finished writing script, $filename is executable"
 }
 
 
