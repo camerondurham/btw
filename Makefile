@@ -11,9 +11,12 @@ installaur:
 config:
 	cd pkg && sudo ./configure-system.sh && ./configure-user.sh && ./download-wallpapers.sh
 
+config-user:
+	cd pkg && ./configure-user.sh
+
 update:
 	cd pkg && ./update-config.sh
 
 # oh this is so ugly but ok for now
 list:
-	echo -e " install\n installaur\n config\n update\n"
+	echo -e " install\n installaur\n config\n config-user\n update\n"
