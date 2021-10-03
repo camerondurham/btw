@@ -24,7 +24,7 @@ mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 cp  ../config/configdirs/aliases/* ~/.config/aliases/
 cp  ../config/configdirs/nvim/* ~/.config/nvim/
 cp  ../config/configdirs/tmux/* ~/.config/tmux/
-cp  ../config/configdirs/xfce4/xfconf/xfce-perchannel-xml ~/.config/xfce4/xfconf/xfce-perchannel-xml
+cp  ../config/configdirs/xfce4/xfconf/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 
 # dotfiles and such to ~/.*
