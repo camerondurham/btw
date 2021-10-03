@@ -59,6 +59,9 @@ if [[ $? -ne 0 ]]; then
     # tmux new-window -t "${sn}" -n "${window}"
     # tmux send-keys -t "${sn}:${window}" "ssh -L 2009:127.0.0.1:2009 $CLOUD_DESKTOP" Enter
 
+    cd ~
+    tmux new-window -t "$sn" -n "home"
+
 
 fi
 
