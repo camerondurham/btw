@@ -203,8 +203,8 @@ let g:lightline = { 'colorscheme' : 'material_vim' }
 hi Normal guibg=NONE ctermbg=NONE
 
 " TODO: convert into a function
-" set dark background if it's after 20 hours or 8PM
-if strftime('%H:%M') >= '19:15' || strftime('%H:%M') <= '05:30'
+" set dark background if it's after 20 hours or 5PM
+if strftime('%H:%M') >= '17:15' || strftime('%H:%M') <= '05:30'
     set background=dark
     let g:material_theme_style = 'darker'
     colorscheme material
