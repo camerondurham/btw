@@ -35,6 +35,7 @@ echo "remember to log out to use wally or training tool for changes to take effe
 
 
 # allow docker to run without `sudo`
+# https://docs.docker.com/engine/install/linux-postinstall/
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
