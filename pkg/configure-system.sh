@@ -33,6 +33,12 @@ sudo usermod -aG plugdev $USER
 
 echo "remember to log out to use wally or training tool for changes to take effect"
 
+
+# allow docker to run without `sudo`
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
 # TODO: fix this
 # make vconsole font larger
 # VCONSOLE_FONT=FONT=ter-v32n.psf.gz
