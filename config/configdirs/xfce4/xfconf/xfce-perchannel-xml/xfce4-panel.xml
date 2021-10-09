@@ -29,6 +29,8 @@
       <property name="span-monitors" type="bool" value="true"/>
       <property name="disable-struts" type="bool" value="false"/>
       <property name="output-name" type="string" value="Primary"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="nrows" type="uint" value="1"/>
     </property>
     <property name="panel-2" type="empty">
       <property name="autohide-behavior" type="uint" value="1"/>
@@ -69,6 +71,7 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="Slack1"/>
         <value type="string" value="toolbox"/>
         <value type="string" value="steam"/>
         <value type="string" value="obs"/>
@@ -81,7 +84,9 @@
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-12" type="string" value="clock"/>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+    </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>

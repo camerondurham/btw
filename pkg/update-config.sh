@@ -24,7 +24,7 @@ if [ "$EUID" -eq 0 ]
         exit
 fi
 
-echo -n "Are you sure you want to copy files into setup? (y/n)"
+echo -n "Are you sure you want to copy files into setup? (y/n) "
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ]; then

@@ -148,3 +148,7 @@ if [[ -e "$HOME/setup/tools" ]]; then
     export PATH=$PATH:$HOME/setup/tools
 fi
 
+if [[ -e "$HOME/go/bin" ]]; then
+    export PATH=$PATH:$HOME/go/bin
+fi
+
