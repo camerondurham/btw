@@ -1,5 +1,6 @@
 cef-minimal
 gconf
+git-secrets
 golang-dep
 jetbrains-toolbox
 kubectl-bin
