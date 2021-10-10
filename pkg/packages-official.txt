@@ -12,10 +12,10 @@ code
 ctags
 dhcpcd
 discord
-docker
 dmenu
-flatpak
+docker
 firefox-developer-edition
+flatpak
 git
 go
 grub
@@ -34,6 +34,7 @@ obs-studio
 openssh
 pavucontrol
 picom
+playerctl
 python-pip
 ripgrep
 signal-desktop
