@@ -48,3 +48,17 @@
 # Mute microphone
 "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     XF86AudioMicMute
+
+# play/pause toggle
+"playerctl --player=spotify play-pause"
+    XF86AudioPlay
+
+"playerctl --player=spotify play-pause"
+    XF86AudioStop
+
+"playerctl --player=spotify next"
+    XF86AudioNext
+
+
+"playerctl --player=spotify previous"
+    XF86AudioPrev
