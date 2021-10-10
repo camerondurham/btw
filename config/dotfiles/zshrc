@@ -152,3 +152,4 @@ if [[ -e "$HOME/go/bin" ]]; then
     export PATH=$PATH:$HOME/go/bin
 fi
 
+export PATH="$PATH:/home/cam/ch-linux-amd64"

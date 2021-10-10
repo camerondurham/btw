@@ -17,3 +17,5 @@
 	tool = nvim -d
 [github]
     user = camerondurham
+[core]
+	autocrlf = input

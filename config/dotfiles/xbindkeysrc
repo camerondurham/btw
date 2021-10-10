@@ -32,3 +32,19 @@
 "lof /usr/bin/spotify"
     m:0x40 + c:56
     Mod4 + m
+
+# increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+    XF86AudioRaiseVolume
+
+# decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+    XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    XF86AudioMute
+
+# Mute microphone
+"pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    XF86AudioMicMute
