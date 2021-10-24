@@ -88,3 +88,23 @@ xrandr --auto
 - `obs-linuxbrowser-bin` also must be installed with dependencies from aur `gconf` and `ceph-minimal` (see [package](https://aur.archlinux.org/packages/obs-linuxbrowser-bin))
 - cannot build the aur version of docker, `docker-git`, due to broken/unmaintained package and/or docker project being move to moby/moby repo
 
+
+### problem with AMD Ryzen CPU
+
+PC will "randomly" freeze, screen on, but mouse and keyboard input will not work.
+
+Helpful wiki post: https://bbs.archlinux.org/viewtopic.php?id=245608
+
+Gentoo Wiki: https://wiki.gentoo.org/wiki/Ryzen#Random_reboots_with_mce_events
+
+Updating kernel params with GRUB boot loader: https://wiki.archlinux.org/title/kernel_parameters#GRUB
+
+```bash
+sudo vim /etc/default/grub
+
+# add parameters to
+GRUB_CMDLINE_LINUX="processor.max_cstate=5 rcu_nocbs=0-11"
+
+# regenerate `grub.cfg`
+grub-mkconfig -o /boot/grub/grub.cfg
+```
