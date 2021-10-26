@@ -18,7 +18,7 @@ fi
 
 ./neovim-plugin-deps-install.sh || return 1
 
-mkdir -p $HOME/.config
+mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 
 # copy configdirs/{aliases,nvim,tmux} to .config/
 mkdir -p ~/.config/{aliases,nvim,tmux}
@@ -27,6 +27,7 @@ cp ../config/configdirs/nvim/* ~/.config/nvim
 cp ../config/configdirs/tmux/* ~/.config/tmux
 
 # dotfiles and such to ~/.*
+cp ../config/dotfiles/alacritty.yml ~/.alacritty.yml
 cp ../config/dotfiles/gitconfig ~/.gitconfig
 cp ../config/dotfiles/xbindkeysrc ~/.xbindkeysrc
 cp ../config/dotfiles/xinitrc ~/.xinitrc

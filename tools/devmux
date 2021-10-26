@@ -12,29 +12,36 @@ if [[ $? -ne 0 ]]; then
     fi
 
     # create session
-    cd ~/config
-    tmux new-session -s "$sn" -n "config" -d
+    cd ~/setup
+    tmux new-session -s "$sn" -n "setup" -d
+
+    cd ~
+    window="bashtop"
+    full_window="${sn}:${window}"
+    tmux new-window -t "$sn" -n "${window}"
+    tmux send-keys -t "${full_window}" "bashtop" Enter
 
     tmux new-window -t "$sn" -n "notes"
 
-    cd ~/workplace/ContributorIngestServices/src/ContributorIngestServicesCDK
+    cd ~/workplace
     # set title to last dir name in PWD path
     tmux new-window -t "$sn" -n "${PWD##*/}"
 
-    cd ~/workplace/ContributorIngestServices/src/ContraCommonCDKLibrary
+    # example
+    # cd ~/workplace/project
+    # tmux new-window -t "$sn" -n "${PWD##*/}"
+
+    cd ~/workplace/ch
     tmux new-window -t "$sn" -n "${PWD##*/}"
 
-    cd ~/workplace/ContributorIngestServices/src
-    tmux new-window -t "$sn" -n "ws:cis"
-
-    cd ~/workplace/ListingsDPPIntegTestNAWS
-    window="ws-ListingsDPPInteg-0"
+    cd ~/workplace/
+    window="ws-0"
     full_window="${sn}:${window}"
     tmux new-window -t "$sn" -n "${window}"
     tmux send-keys -t "${full_window}" "${QWERT1}" 'C-m'
     tmux split-window -t ${full_window} -h
-    tmux send-keys -t "${full_window}.1" "cd ~/workplace/ListingsDPPIntegTestNAWS/src/ContraListingsDPPIntegrationTest" Enter
-    tmux new-window -t "$sn" -n "ws-ListingsDPPInteg-1"
+    tmux send-keys -t "${full_window}.1" "cd ~/workplace/" Enter
+    tmux new-window -t "$sn" -n "ws-1"
 
     # from https://superuser.com/a/492549
         # session=whatever
@@ -51,6 +58,9 @@ if [[ $? -ne 0 ]]; then
     # window="port-forward"
     # tmux new-window -t "${sn}" -n "${window}"
     # tmux send-keys -t "${sn}:${window}" "ssh -L 2009:127.0.0.1:2009 $CLOUD_DESKTOP" Enter
+
+    cd ~
+    tmux new-window -t "$sn" -n "home"
 
 
 fi
