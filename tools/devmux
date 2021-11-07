@@ -50,6 +50,12 @@ if [[ $? -ne 0 ]]; then
         # tmux send-keys -t "$pane" C-z 'some -new command' Enter
     # tmux new-window -t "$sn" -n "ws:ListingsDPPInteg:sync"
 
+    window="k3s"
+    full_window="${sn}:${window}"
+    tmux new-window -t "$sn" -n "${window}"
+    tmux split-window -t ${full_window} -v
+    tmux send-keys -t "${full_window}.0" "watch kubectl get svc --all-namespaces -o wide" Enter
+    tmux send-keys -t "${full_window}.1" "watch kubectl get nodes -o wide" Enter
 
     cd ~/workplace
     tmux new-window -t "$sn" -n "workplace"
