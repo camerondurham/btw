@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# source
+# https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
 TEMP_DIR=$(mktemp -d)
 
 cd $TEMP_DIR || exit 1
