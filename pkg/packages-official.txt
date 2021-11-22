@@ -2,7 +2,6 @@ alacritty
 alsa-utils
 amd-ucode
 archlinux-keyring
-aws-cli
 base
 base-devel
 bash-completion
