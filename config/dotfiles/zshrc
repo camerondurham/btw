@@ -133,6 +133,19 @@ function writescript() {
 }
 
 
+export MINE_PATH="$HOME/workplace/clusterf/dkr-compose/mine"
+
+if [[ -e "$MINE_PATH" ]]; then
+
+    function mineup() {
+        docker-compose -f $HOME/workplace/clusterf/dkr-compose/mine/docker-compose.yml up -d
+    }
+
+    function minedn() {
+        docker-compose -f $HOME/workplace/clusterf/dkr-compose/mine/docker-compose.yml down
+    }
+fi
+
 # ---------- zsh prompt
 # $'\n' forces new line
 export PS1=""$'\n'"%1~"$'\n'"; "
@@ -153,3 +166,5 @@ if [[ -e "$HOME/go/bin" ]]; then
 fi
 
 export PATH="$PATH:/home/cam/ch-linux-amd64"
+source $HOME/.cargo/env
+
